@@ -1,0 +1,1 @@
+mongod --dbpath=D:/data --port 27017
