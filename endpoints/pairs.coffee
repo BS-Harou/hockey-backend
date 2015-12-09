@@ -19,9 +19,20 @@ insertPair = (db, data, cb) ->
 
 removePair = (db, data, cb) ->
 	return unless data._id
-	collection = db.collection 'pairs'
+
+	removeMatchesByPairId db, data._id, ->
+		collection = db.collection 'pairs'
+		collection.remove {
+			_id: ObjectID data._id
+		}, (err, result) ->
+			assert.equal err, null
+			cb result
+
+removeMatchesByPairId = (db, pairId, cb) ->
+	return unless pairId
+	collection = db.collection 'matches'
 	collection.remove {
-		_id: ObjectID data._id
+		pairId: pairId
 	}, (err, result) ->
 		assert.equal err, null
 		cb result
