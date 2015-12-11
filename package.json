@@ -4,9 +4,10 @@
   "description": "Backend for nhl app",
   "main": "index.js",
   "dependencies": {
-    "mongodb": "~2.0.35",
     "express": "~4.13.0",
-    "socket.io": "~1.3.5"
+    "mongodb": "~2.0.35",
+    "socket.io": "~1.3.5",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {},
   "scripts": {

@@ -2,14 +2,16 @@
 # MONGO
 #
 
-MongoClient = require('mongodb').MongoClient
+# MongoClient = require('mongodb').MongoClient
+MongoClient = require('./dumb-mongo').MongoClient
 assert = require 'assert'
 
 url = 'mongodb://localhost:27017/myproject'
+dumbUrl = './db.json'
 global.mongodb = mongodb = null
 
 
-MongoClient.connect url, (err, db) ->
+MongoClient.connect dumbUrl, (err, db) ->
 	assert.equal null, err
 	console.log 'Connected correctly to mongo server'
 
